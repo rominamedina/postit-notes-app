@@ -32,8 +32,8 @@ const ButtonPostit = ({ movePostit, postitId, showComponent }) => {
 
             {visible ? 
                 (<Modal 
-                    show={visible}
-                    onClose={() => setVisible(false)}
+                    show={ visible }
+                    onClose={ () => setVisible(false) }
                 />) 
                 : null}    
         </div>

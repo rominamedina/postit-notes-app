@@ -5,9 +5,8 @@ const TrashBin = ({ changeBoard }) => {
         <div>
             <button
                 type="button"
-                onClick = { () => changeBoard(true)}
-            >Workspace</button>      
-            
+                onClick = { () => changeBoard(true) }
+            >Workspace</button>          
         </div>
     )
 }

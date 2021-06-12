@@ -4,17 +4,17 @@ import TrashBin from "./components/TrashBin/TrashBin";
 
 function App() {
 
-  const [ changeboard, changeBoard ] = useState(true);
+  const [ showcomponent, showComponent ] = useState(true);
 
   return (
     <div className="App">
       <header className="App-header">
         <h1>Post-it Notes App</h1>
       </header>
-        {changeboard ? 
-          (<Workspace changeBoard={ changeBoard }/>)
+        {showcomponent ? 
+          (<Workspace showComponent={ showComponent }/>)
           :
-          (<TrashBin changeBoard={ changeBoard }/>)}
+          (<TrashBin showComponent={ showComponent }/>)}
     </div>
   );
 }

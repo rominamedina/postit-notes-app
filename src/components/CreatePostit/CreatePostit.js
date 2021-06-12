@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from 'react';
-import { v4 as uuid } from "uuid";
 import Form from '../Form/Form';
+import { v4 as uuid } from "uuid";
 
 const CreatePostit = ({ createPostit }) => {
 
@@ -19,7 +19,7 @@ const CreatePostit = ({ createPostit }) => {
         })
     }
 
-    const { title, date, description } = postit;
+    const { title, date, description } = postit
 
     const submitPostit = (e) => {
         e.preventDefault();
@@ -49,7 +49,7 @@ const CreatePostit = ({ createPostit }) => {
                 updateState={ updateState }
                 submitPostit={ submitPostit }
                 error={ error }
-            />    
+            />
         </Fragment>
     )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import ButtonPostit from '../ButtonPostit/ButtonPostit';
 
-const Postit = ({ postitId, movePostit, showComponent }) => {
+const Postit = ({ postitId, movePostit, showComponent, deletePostit }) => {
 
     let postit = JSON.parse(localStorage.getItem(postitId))
 
@@ -15,6 +15,7 @@ const Postit = ({ postitId, movePostit, showComponent }) => {
                 postitId={ postitId }
                 movePostit={ movePostit }
                 showComponent={ showComponent }
+                deletePostit={ deletePostit }
             />   
         </div>
     )

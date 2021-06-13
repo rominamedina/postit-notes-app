@@ -6,7 +6,7 @@ import RestoreFromTrashIcon from '@material-ui/icons/RestoreFromTrash';
 import ArchiveIcon from '@material-ui/icons/Archive';
 
 
-const ButtonPostit = ({ movePostit, postitId, showComponent }) => {
+const ButtonPostit = ({ movePostit, postitId, showComponent, deletePostit }) => {
 
     const [visible, setVisible] = useState(false);
 
@@ -28,6 +28,7 @@ const ButtonPostit = ({ movePostit, postitId, showComponent }) => {
                 type="button"
                 id="boton"
                 className='icon-button'
+                onClick={ () => { deletePostit(postitId) }}
             />)}
 
             {visible ? 

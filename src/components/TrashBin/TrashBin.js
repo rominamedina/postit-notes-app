@@ -17,6 +17,12 @@ const TrashBin = ({ showComponent }) => {
 
         savePostits(postitIds);
     }
+    
+    const deletePostit = (postitId) => {
+        localStorage.removeItem(postitId);
+
+        savePostits(postitIds);
+    }
 
     return (
         <div>
@@ -29,6 +35,7 @@ const TrashBin = ({ showComponent }) => {
                     key={ postitId }
                     postitId={ postitId }
                     movePostit={ movePostit }
+                    deletePostit={ deletePostit }
                 />
             ))}        
         </div>

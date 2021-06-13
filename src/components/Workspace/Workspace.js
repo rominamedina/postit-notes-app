@@ -29,6 +29,17 @@ const Workspace = ({ showComponent }) => {
         savePostits(postitIds);
     }
 
+    //Editar un post-it:
+    // const editPostit = (postitId) => {
+    //     let postit = JSON.parse(localStorage.getItem(postitId))
+    //     localStorage.setItem(postitId, JSON.stringify(postit));
+    //     console.log(postitId)
+    //     console.log(postit)
+
+    //     guardarAllPostIts(postitIds);
+    // }
+
+
     const checkIfEmpty = () => {
         let ids = { ...localStorage };
         let removedIds = Object.keys(ids).filter(s => s.includes('removed'));
@@ -49,9 +60,10 @@ const Workspace = ({ showComponent }) => {
                 { postits.map(postitId => (
                     <Postit
                         key={ postitId }
-                        postitId={ postitId}
+                        postitId={ postitId }
                         movePostit={ movePostit }
                         showComponent={ showComponent }
+                        editPostit={ postitId }
                     />
                 )) }
 

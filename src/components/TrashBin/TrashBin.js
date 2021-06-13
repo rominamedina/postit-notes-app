@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Postit from '../Postit/Postit';
+import '../TrashBin/TrashBin.css';
 
-const TrashBin = ({ showComponent }) => {
+const TrashBin = () => {
 
     const postitIds = () => {
         let ids = { ...localStorage };
@@ -26,18 +27,16 @@ const TrashBin = ({ showComponent }) => {
 
     return (
         <div>
-            <button
-                type="button"
-                onClick = { () => showComponent(true) }
-            >Workspace</button>  
-            { postits.map(postitId => (
-                <Postit
-                    key={ postitId }
-                    postitId={ postitId }
-                    movePostit={ movePostit }
-                    deletePostit={ deletePostit }
-                />
-            ))}        
+            <div className="container">
+                { postits.map(postitId => (
+                    <Postit
+                        key={ postitId }
+                        postitId={ postitId }
+                        movePostit={ movePostit }
+                        deletePostit={ deletePostit }
+                    />
+                ))}
+            </div>       
         </div>
     )
 }

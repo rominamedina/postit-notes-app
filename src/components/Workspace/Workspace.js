@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
 import Postit from '../Postit/Postit';
+import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import '../Workspace/Workspace.css';
 
 const Workspace = ({ showComponent }) => {
 
@@ -26,19 +29,23 @@ const Workspace = ({ showComponent }) => {
         savePostits(postitIds);
     }
 
+    const checkIfEmpty = () => {
+        let ids = { ...localStorage };
+        let removedIds = Object.keys(ids).filter(s => s.includes('removed'));
+        return removedIds.length > 0;
+    }
+
     const [ visible, setVisible ] = useState(false);
 
     return (
         <div>
-            <button
-                onClick={ () => setVisible(true) }
-            >Create Post-it Note</button>
+
             <Modal
                 show={ visible }
                 onClose={ () => setVisible(false) }
                 createPostit={ createPostit }
             />
-            <div>
+            <div className="container">
                 { postits.map(postitId => (
                     <Postit
                         key={ postitId }
@@ -47,11 +54,24 @@ const Workspace = ({ showComponent }) => {
                         showComponent={ showComponent }
                     />
                 )) }
-            </div>
-            <button
-                type="button"
-                onClick = { () => showComponent(false) }
-            >Trash Bin</button>            
+
+                {checkIfEmpty() ?
+                (<button className="circle-trash">
+                    <DeleteIcon className="delete-icon"/>
+                </button>)
+                :
+                (<button className="circle-trash">
+                    <DeleteOutlineIcon className="delete-icon"/>
+                </button>)}
+
+                <button
+                    className="circle-addpostit"
+                    onClick={ () => setVisible(true) }
+                    ><img 
+                    className="circle-img"
+                    src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/2x/btw_ic_speeddial_white_24dp_2x.png" alt="" />
+                </button>
+            </div>     
         </div>
     )
 }

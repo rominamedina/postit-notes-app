@@ -39,7 +39,7 @@ To create a random UUID install
 
 Create a UUID:
 
-### import { v4 as uuidv4 } from 'uuid';
+### `import { v4 as uuidv4 } from 'uuid';`
 
 ## Library used (to icons): material-ui
 

@@ -1,28 +1,21 @@
-import React, { useState } from "react";
-import Workspace from "./components/Workspace/Workspace";
-import TrashBin from "./components/TrashBin/TrashBin";
-import Nav from "./components/Nav/Nav";
-import './App.css';
+import React  from 'react';
+import Routes from './components/Routes/Routes';
+import { Switch, BrowserRouter, Route } from 'react-router-dom';
+import Home from './components/Home/Home';
 
 function App() {
 
-  const [ showcomponent, showComponent ] = useState(true);
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <div className="border"></div>
-        <h1>Post-it Notes App</h1>
-        <img className="underline" src="//d17dednewomw88.cloudfront.net/assets/dist/fonts/underline.svg"></img>  
-      </header>
-      <Nav
-        showComponent={ showComponent }
-      />      
-        {showcomponent ? 
-          (<Workspace showComponent={ showComponent }/>)
-          :
-          (<TrashBin showComponent={ showComponent }/>)}
+    <BrowserRouter>
+    <div className="app-container">
+      <div className="app-container__inner">
+        <Switch>
+          <Route exact path={`${Routes.HOME}`} component={Home} />
+          <Route render={() => <h1>404 - not found</h1>} />
+        </Switch>
+      </div>
     </div>
+  </BrowserRouter>
   );
 }
 

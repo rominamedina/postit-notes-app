@@ -52,3 +52,9 @@ These components use the Material-UI SvgIcon component to render the SVG path fo
 If you are not already using Material-UI in your project, you can add it with:
 
 ### `yarn add @material-ui/core`
+
+## Library used (to manage application routing): react-router-dom
+
+Install the package in your project directory with:
+
+### `yarn add react-router-dom`
